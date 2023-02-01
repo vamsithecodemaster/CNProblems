@@ -1,0 +1,37 @@
+For a given a string(str) and a character X, write a function to remove all the occurrences of X from the given string.
+The input string will remain unchanged if the given character(X) doesn't exist in the input string.
+Input Format:
+The first line of input contains a string without any leading and trailing spaces.
+
+The second line of input contains a character(X) without any leading and trailing spaces.
+Output Format:
+The only line of output prints the updated string. 
+------------
+SOLUTION:
+------------
+def take_input():
+    rows, cols = map(int, input().strip().split())
+    arr = [[int(x) for x in input().strip().split()] for _ in range(rows)]
+    return arr
+
+def remove_all_occurrences_of_char(input, c):
+    result = ""
+    for char in input:
+        if char == c:
+            continue
+        result += char
+    return result
+
+input_string = input().strip()
+c = input().strip()[0]
+result = remove_all_occurrences_of_char(input_string, c)
+print(result)
+
+--------------
+EXPLANATION:
+--------------
+takeInput function takes the number of rows and columns of a 2D integer array as input, then returns the input array. The input of the number of rows and columns is taken using a Scanner object, and the values of the array are taken row-wise using a nested loop.
+
+removeAllOccurrencesOfChar function takes a string input and a character c as input. It removes all occurrences of the character c from the string input. It initializes an empty string result and iterates through the input string, adding each character to the result string only if it is not equal to the character c. Finally, it returns the result string.
+
+The main method takes the input string and character to be removed as input using a Scanner object. It calls the removeAllOccurrencesOfChar function with the input string and character, and stores the result in a variable. Finally, it prints the result.
