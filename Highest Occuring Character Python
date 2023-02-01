@@ -1,0 +1,41 @@
+For a given a string(str), find and return the highest occurring character.
+Example:
+Input String: "abcdeapapqarr"
+Expected Output: 'a'
+Since 'a' has appeared four times in the string which happens to be the highest frequency character, the answer would be 'a'.
+If there are two characters in the input string with the same frequency, return the character which comes first.
+Consider:
+Assume all the characters in the given string to be in lowercase always.
+Input Format:
+The first and only line of input contains a string without any leading and trailing spaces.
+Output Format:
+The only line of output prints the updated string. 
+---------
+SOLUTION:
+---------
+def highest_occurring_character(input_string):
+    c1 = 0
+    c2 = 0
+    max_char = '\0'
+    for j in range(len(input_string)):
+        for i in range(len(input_string)):
+            if input_string[i] == input_string[j]:
+                c2 += 1
+        if c2 > c1:
+            max_char = input_string[j]
+            c1 = c2
+        c2 = 0
+    return max_char
+
+input_string = input()
+result = highest_occurring_character(input_string)
+print(result)
+
+------------
+EXPLANATION:
+------------
+The program has two functions: highestOccuringCharacter and main.
+
+The highestOccuringCharacter function takes a string as input and returns the highest occurring character in that string. The function uses two variables c1 and c2 to store the count of characters. The function iterates over the string and uses nested loop to compare the current character with all other characters in the string. If a match is found, the count c2 is incremented. After each iteration, the function checks if the count of the current character is greater than the previous highest count. If so, the character is assigned to maxChar and the count is updated.
+
+The main function takes the string input from the user using the Scanner object and calls the highestOccuringCharacter function passing the input string as an argument. The returned character from the function is printed to the console.
