@@ -1,0 +1,41 @@
+Remove Consecutive Duplicates
+For a given string(str), remove all the consecutive duplicate characters.
+Example:
+Input String: "aaaa"
+Expected Output: "a"
+
+Input String: "aabbbcc"
+Expected Output: "abc"
+ Input Format:
+The first and only line of input contains a string without any leading and trailing spaces. All the characters in the string would be in lower case.
+Output Format:
+The only line of output prints the updated string.
+---------
+SOLUTION:
+---------
+def remove_consecutive_duplicates(input):
+    result = ""
+    ch = input[0]
+    result += ch
+    for i in range(1, len(input)):
+        if input[i] == ch:
+            continue
+        else:
+            result += input[i]
+        ch = input[i]
+    return result
+
+
+str = input()
+result = remove_consecutive_duplicates(str)
+print(result)
+-------------
+EXPLANATION:
+-------------
+This code implements a function called remove_consecutive_duplicates that takes a string input as its argument and returns a new string with all consecutive duplicate characters removed.
+
+The function uses a loop to iterate through the input string, comparing each character with the previous one. If the current character is different from the previous one, it is added to the result string. If it is the same, the loop skips it.
+
+After the loop is finished, the function returns the result string.
+
+Finally, the code takes user input to get the string and calls the remove_consecutive_duplicates function with the input string as an argument. The result of the function is then printed out to the console.
