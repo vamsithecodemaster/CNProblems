@@ -1,0 +1,55 @@
+Aadil has been provided with a sentence in the form of a string as a function parameter. The task is to implement a function so as to print the sentence such that each word in the sentence is reversed.
+Example:
+Input Sentence: "Hello, I am Aadil!"
+The expected output will print, ",olleH I ma !lidaA".
+Input Format:
+The first and only line of input contains a string without any leading and trailing spaces. The input string represents the sentence given to Aadil.
+Output Format:
+The only line of output prints the sentence(string) such that each word in the sentence is reversed.
+
+SOLUTION:
+
+def reverse_each_word(input: str) -> str:
+    reverse_word = ""
+    result = ""
+    start = 0
+    end = 0
+    for i in range(len(input)):
+        if input[i] == " ":
+            end = i - 1
+            reverse_word = ""
+            for j in range(end, start-1, -1):
+                reverse_word += input[j]
+            start = i + 1
+            result += reverse_word + " "
+    reverse_word = ""
+    for j in range(len(input)-1, start-1, -1):
+        reverse_word += input[j]
+    result += reverse_word
+    return result
+
+
+str = input()
+print(reverse_each_word(str))
+
+-------------
+EXPLANATION:
+-------------
+This code implements a function reverse_each_word which takes a string input as input and returns a string which is the reverse of each word in the input string. Here's how it works:
+
+The function starts with two variables reverse_word and result as empty strings. The variable start is initialized to 0, and end is initialized to 0.
+
+The function then loops over each character in the input string, and when it encounters a space, it sets end to i - 1, which is the index of the last character of the current word.
+
+The next step is to reverse the characters between start and end, and the loop j starts from end and goes until start decrementing by 1 on each iteration. On each iteration, the character at index j is appended to reverse_word.
+
+After the loop ends, the value of start is updated to i + 1 to start from the first character of the next word. The value of reverse_word is then concatenated to result with a space.
+
+This process continues for each word in the input string, until the loop ends. After the loop ends, the function performs one more reverse operation for the last word in the string, similar to the previous steps.
+
+Finally, the function returns the result string.
+
+The main program reads a string from the user, calls the reverse_each_word function with the input string, and prints the result.
+
+
+
